@@ -1,0 +1,1 @@
+This project is for utilizing a variety of google api's to transcribe and translate foreign video. Usage of these scripts and tools will require the inclusion of a set of google api keys that have access to writing to google cloud storage, calling the speech api, and calling the translation api. Such credentials should be placed in a credentials.json file
