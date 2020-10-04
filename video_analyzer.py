@@ -14,10 +14,10 @@ class VideoAnalyzer:
         return channel_count, bit_rate, sample_rate
 
     @staticmethod
-    def convert_to_audio(video_filepath: str) -> str:
+    def convert_to_audio(video_filepath: str):
         channel_count, bit_rate, sample_rate = VideoAnalyzer.extract_media_info(video_filepath)
         # audio file name is video without extension + _audio.wav
         audio_filename = video_filepath.rsplit('.', 1)[0] + '_audio.wav'
         audio_convert_command = f'ffmpeg -i {video_filepath} -b:a {bit_rate} -ac {channel_count} -ar {sample_rate} -vn {audio_filename}'
         subprocess.call(audio_convert_command, shell=True)
-        return audio_filename
+        return audio_filename, channel_count, sample_rate
